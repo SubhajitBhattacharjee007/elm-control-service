@@ -24,7 +24,7 @@ public class ElmDashboardRestController implements ElmDashboardRestService {
     public ResponseEntity<String> createTicket(TicketDto ticketDto) {
         System.out.println(ticketDto.getProjectName());
         TicketDto ticket = ticketService.createTicket(ticketDto);
-        return new ResponseEntity<>(ticket.toString(), HttpStatus.OK);
+        return new ResponseEntity<>(ticket.getId().toString(), HttpStatus.OK);
     }
 
 }
