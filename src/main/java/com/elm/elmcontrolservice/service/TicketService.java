@@ -8,6 +8,8 @@ public interface TicketService {
 
     List<TicketDto> getAllTickets();
 
+    List<TicketDto> getAllClosedTickets();
+
     void deleteTicket(Long ticketId);
 
     TicketDto createTicket(TicketDto ticketDto);

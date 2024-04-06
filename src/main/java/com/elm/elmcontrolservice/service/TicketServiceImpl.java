@@ -50,4 +50,10 @@ public class TicketServiceImpl implements TicketService {
         return TicketMapper.toTicketDto(ticket.get());
     }
 
+    @Override
+    public List<TicketDto> getAllClosedTickets() {
+        List<Ticket> tickets = ticketRepository.findAllClosedTickets();
+        return tickets.stream().map(ticket -> TicketMapper.toTicketDto(ticket)).collect(Collectors.toList());
+    }
+
 }

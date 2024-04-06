@@ -16,8 +16,11 @@ import com.elm.elmcontrolservice.dto.TicketDto;
 @RestController
 public interface ElmDashboardRestService {
 
-    @GetMapping("/getTickets")
-    public ResponseEntity<List<TicketDto>> getTickets();
+    @GetMapping("/getAllTickets")
+    public ResponseEntity<List<TicketDto>> getAllTickets();
+
+    @GetMapping("/getAllClosedTickets")
+    public ResponseEntity<List<TicketDto>> getAllClosedTickets();
 
     @PostMapping(value = "/xyz", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> createTicket(@RequestBody(required = true) TicketDto ticketDto);

@@ -25,8 +25,14 @@ public class ElmDashboardRestController implements ElmDashboardRestService {
     }
 
     @Override
-    public ResponseEntity<List<TicketDto>> getTickets() {
+    public ResponseEntity<List<TicketDto>> getAllTickets() {
         List<TicketDto> tickets = ticketService.getAllTickets();
+        return new ResponseEntity<>(tickets, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<List<TicketDto>> getAllClosedTickets() {
+        List<TicketDto> tickets = ticketService.getAllClosedTickets();
         return new ResponseEntity<>(tickets, HttpStatus.OK);
     }
 
