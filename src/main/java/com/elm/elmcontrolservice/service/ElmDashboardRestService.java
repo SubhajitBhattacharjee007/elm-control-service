@@ -22,7 +22,13 @@ public interface ElmDashboardRestService {
     @GetMapping("/getAllClosedTickets")
     public ResponseEntity<List<TicketDto>> getAllClosedTickets();
 
+    @GetMapping("/getAllOpenTickets")
+    public ResponseEntity<List<TicketDto>> getAllOpenTickets();
+
     @PostMapping(value = "/xyz", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> createTicket(@RequestBody(required = true) TicketDto ticketDto);
+
+    @PostMapping(value = "/updateTicket", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TicketDto> updateTicket(@RequestBody(required = true) TicketDto ticketDto);
 
 }

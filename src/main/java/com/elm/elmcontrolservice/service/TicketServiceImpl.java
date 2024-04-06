@@ -20,7 +20,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public List<TicketDto> getAllTickets() {
-        List<Ticket> tickets = ticketRepository.findAll();
+        List<Ticket> tickets = ticketRepository.findAllOpenTickets();
         return tickets.stream().map(ticket -> TicketMapper.toTicketDto(ticket)).collect(Collectors.toList());
     }
 
@@ -43,16 +43,28 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public TicketDto updateTicket(Long ticketId, TicketDto updatedticket) {
-        Optional<Ticket> ticket = ticketRepository.findById(ticketId);
+    public TicketDto updateTicket(TicketDto updatedticket) {
+        Optional<Ticket> ticket = ticketRepository.findById(updatedticket.getId());
+        ticket.get().setAcceptanceCriteria(updatedticket.getAcceptanceCriteria());
         ticket.get().setProjectName(updatedticket.getProjectName());
+        ticket.get().setDescription(updatedticket.getDescription());
         ticket.get().setIssueType(updatedticket.getIssueType());
-        return TicketMapper.toTicketDto(ticket.get());
+        ticket.get().setPriority(updatedticket.getPriority());
+        ticket.get().setSummary(updatedticket.getSummary());
+        ticket.get().setStatus(updatedticket.getStatus());
+        Ticket savedTicket = ticketRepository.save(ticket.get());
+        return TicketMapper.toTicketDto(savedTicket);
     }
 
     @Override
     public List<TicketDto> getAllClosedTickets() {
         List<Ticket> tickets = ticketRepository.findAllClosedTickets();
+        return tickets.stream().map(ticket -> TicketMapper.toTicketDto(ticket)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<TicketDto> getAllOpenTickets() {
+        List<Ticket> tickets = ticketRepository.findAllOpenTickets();
         return tickets.stream().map(ticket -> TicketMapper.toTicketDto(ticket)).collect(Collectors.toList());
     }
 

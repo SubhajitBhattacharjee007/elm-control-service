@@ -10,12 +10,14 @@ public interface TicketService {
 
     List<TicketDto> getAllClosedTickets();
 
+    List<TicketDto> getAllOpenTickets();
+
     void deleteTicket(Long ticketId);
 
     TicketDto createTicket(TicketDto ticketDto);
 
     TicketDto getTicketById(Long ticketId);
 
-    TicketDto updateTicket(Long ticketId, TicketDto ticket);
+    TicketDto updateTicket(TicketDto ticket);
 
 }

@@ -11,4 +11,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     @Query("SELECT u FROM Ticket u WHERE u.status = 'Closed'")
     List<Ticket> findAllClosedTickets();
+
+    @Query("SELECT u FROM Ticket u WHERE u.status not in ('Closed')")
+    List<Ticket> findAllOpenTickets();
 }
