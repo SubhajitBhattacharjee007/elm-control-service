@@ -1,5 +1,7 @@
 package com.elm.elmcontrolservice.service;
 
+import java.util.List;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,8 +16,8 @@ import com.elm.elmcontrolservice.dto.TicketDto;
 @RestController
 public interface ElmDashboardRestService {
 
-    @GetMapping("/dashboard")
-    public String dashboard();
+    @GetMapping("/getTickets")
+    public ResponseEntity<List<TicketDto>> getTickets();
 
     @PostMapping(value = "/xyz", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> createTicket(@RequestBody(required = true) TicketDto ticketDto);

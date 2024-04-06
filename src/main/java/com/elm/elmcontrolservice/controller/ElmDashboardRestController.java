@@ -1,5 +1,7 @@
 package com.elm.elmcontrolservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,15 +18,16 @@ public class ElmDashboardRestController implements ElmDashboardRestService {
     private TicketService ticketService;
 
     @Override
-    public String dashboard() {
-        return "ElmDashboard";
-    }
-
-    @Override
     public ResponseEntity<String> createTicket(TicketDto ticketDto) {
         System.out.println(ticketDto.getProjectName());
         TicketDto ticket = ticketService.createTicket(ticketDto);
         return new ResponseEntity<>(ticket.getId().toString(), HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<List<TicketDto>> getTickets() {
+        List<TicketDto> tickets = ticketService.getAllTickets();
+        return new ResponseEntity<>(tickets, HttpStatus.OK);
     }
 
 }
