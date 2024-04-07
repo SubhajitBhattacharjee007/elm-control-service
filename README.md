@@ -10,9 +10,9 @@ Prerequisites:
 3. Apache Maven should be installed locally
 
 ---To Run Locally---
-1. git clone https://github.com/SubhajitBhattacharjee007/elm-control-service.git
-2. mvn clean install
-3. cd target
-4. java -jar <project-snapshot-build-tag>.jar
+1. **git clone https://github.com/SubhajitBhattacharjee007/elm-control-service.git**
+2. **mvn clean install**
+3. **cd target**
+4. **java -jar elm-control-service-0.0.1-SNAPSHOT.jar**
 
 Dockerization of the project is in progress.
