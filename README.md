@@ -3,12 +3,16 @@ it is built on React and the backend elm-control-service is built on Java sprint
 
 To run this locally, clone this project and import as a maven project in the IDE. Then update maven and run.
 Steps to run.
-Prerequisites:
-#1. Git should be installed locally
-#2. JDK17 should be installed locally
-#3. Apapche Maven should be installed locally
 
+Prerequisites:
+1. Git should be installed locally
+2. JDK17 should be installed locally
+3. Apapche Maven should be installed locally
+
+---To Run Locally---
 1. git clone <repo_link>
 2. mvn clean install
 3. cd target
 4. java -jar <project-name>.jar
+
+Dockerization of the project is in progress.
