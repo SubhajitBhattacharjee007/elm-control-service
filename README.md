@@ -13,6 +13,6 @@ Prerequisites:
 1. git clone https://github.com/SubhajitBhattacharjee007/elm-control-service.git
 2. mvn clean install
 3. cd target
-4. java -jar <project-name>.jar
+4. java -jar <project-snapshot-build-tag>.jar
 
 Dockerization of the project is in progress.
