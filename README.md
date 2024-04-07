@@ -11,8 +11,9 @@ Prerequisites:
 
 ---To Run Locally---
 1. **git clone https://github.com/SubhajitBhattacharjee007/elm-control-service.git**
-2. **mvn clean install**
-3. **cd target**
-4. **java -jar elm-control-service-0.0.1-SNAPSHOT.jar**
+2. **go inside the project root folder**
+3. **mvn clean install**
+4. **cd target**
+5. **java -jar elm-control-service-0.0.1-SNAPSHOT.jar**
 
 Dockerization of the project is in progress.
